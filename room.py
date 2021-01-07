@@ -7,7 +7,6 @@ class Room:
     objects = [] # list of object names
     exits = []
 
-
     # init
     def __init__(self, name):
         self.name = name
@@ -78,3 +77,9 @@ class Exit:
 
     def getDescription(self):
         return self.description
+
+    def getDirection(self):
+        return self.direction
+
+    def getRoomResult(self):
+        return self.roomResult

@@ -68,9 +68,9 @@ class Flag:
 class Action:
     # vars
     name = "" # name of action
-    type = "" # type of thing the action will do
-    target = "" # the target of the action
-    result = "" # the result of the action
+    description = ""
+    kind = "" # kind of thing the action will do
+    target = {} # the type of target of the action : the name of target
     flagTriggers = [] # list of flag names
 
     # init
@@ -82,14 +82,14 @@ class Action:
         self.flagTriggers = triggers
 
     # defs
-    def getType(self):
-        return self.type
+    def getDescription(self):
+        return self.description
+
+    def getKind(self):
+        return self.kind
 
     def getTarget(self):
         return self.target
-
-    def getResult(self):
-        return self.result
 
     def getTriggers(self):
         return self.flagTriggers

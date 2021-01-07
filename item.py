@@ -11,16 +11,37 @@ class Item:
         self.usableOn = usableOn
 
     # defs
-    def
+    def getDescription(self):
+        return self.description
+
+    def getUsableOn(self):
+        return self.usableOn
 
 class UsableOn:
     # vars
     name = ""
+    usedOn = "" #item.name
+    flagNeeded = "" #flag.name
+    flagTriggered = "" #flag.name
+    resultText = ""
 
     # init
-    def __init__(self, name):
+    def __init__(self, name, usedOn, flagNeeded, flagTriggered, resultText):
         self.name = name
+        self.usedOn = usedOn
+        self.flagNeeded = flagNeeded
+        self.flagTriggered = flagTriggered
+        self.resultText = resultText
 
     # defs
-    def __str__(self):
-        return self.name
+    def getUsedOn(self):
+        return self.usedOn
+
+    def getFlagNeeded(self):
+        return self.flagNeeded
+
+    def getFlagTriggered(self):
+        return self.flagTriggered
+
+    def getResultText(self):
+        return self.resultText
