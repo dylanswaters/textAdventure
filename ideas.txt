@@ -1,0 +1,112 @@
+basic commands
+- go {e,s,w,n} (move, travel, walk, run, skip)
+- talk to {x} (speak to, converse with, greet)
+- use {x} on {y} (combine {x}, with {y})
+- look at {x} (examine)
+- pick up {x} (grab, get)
+- help (?)
+
+Discussion
+- check dialogue, give response
+  - check dialogues first, then people
+
+Mechanical
+-save
+-quit
+-load
+
+main loop
+- get command
+- check if valid
+  - split by space
+  - parse each word
+- if yes, check if appropriate/makes sense
+  - x must be in inventory or in room
+  - locked/cannot go that way
+- execute action
+  - move item to inv, remove item from room
+  - talk
+  - give description
+  - change room
+  - trigger flag
+
+Features
+-inventory
+-flags
+-dialogues
+-item use
+
+Player {
+  name : ""
+  Inventory : []
+  RoomLocation : Room.name
+  FlagList : []
+}
+
+Items {
+  Name : ""
+  Description : ""
+  UsableOn : []
+}
+
+UsableOn : {
+  Name : ""
+  UsedOn : Item.name
+  FlagNeeded : Flag.name
+  FlagTriggered : Flag.name
+  ResultText : ""
+}
+
+Flag {
+  Name : ""
+  Active : T/F
+  Actions : []
+}
+
+Action {
+  Name : ""
+  Type : ""
+  Target : ""
+  Result : ""
+  FlagTriggers : [Flag.name]
+
+}
+
+Room {
+  Name : ""
+  Description : ""
+  Items : []
+  People : []
+  Objects : []
+  Doors/exits : []
+}
+
+Person {
+  Name : ""
+  Dialogues : []
+  Description : ""
+  Greeting : ""
+  DontUnderstandResponse : ""
+  Goodbye : ""
+}
+
+Dialogue {
+  FlagNeeded : ""
+  Subject : ""
+  Response : ""
+  NoFlagResponse : ""
+}
+
+Object {
+  Name : ""
+  Description : ""
+  RejectPickupText : ""
+}
+
+Door/Exit {
+  Door : T/F
+  OpenItemName : Item.name
+  Description : ""
+  Direction : [N,S,E,W]
+  RoomResult : Room.name
+}
