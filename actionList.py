@@ -1,23 +1,13 @@
-actionList = [
-    {
-    name = "" # name of action
-    description = ""
-    type = "" # type of thing the action will do
-    target = "" # the target of the action
-    flagTriggers = [] # list of flag names
-    },
-    {
-    name = "" # name of action
-    description = ""
-    type = "" # type of thing the action will do
-    target = "" # the target of the action
-    flagTriggers = [] # list of flag names
-    },
-    {
-    name = "" # name of action
-    description = ""
-    type = "" # type of thing the action will do
-    target = "" # the target of the action
-    flagTriggers = [] # list of flag names
-    },
-]
+types:
+remove x from y
+    target x: item, object, exit, person
+    target y: Room, Player
+    ex: type: remove target: Person : dylan, Room : bedRoom
+
+dialogue
+    desc: starts dialogue
+    target: Person : personName
+    targetTypes: person
+    ex: type: dialogue target: Person : dylan
+
+unlock

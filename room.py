@@ -52,7 +52,7 @@ class Exit:
     openItemName = ""
     description = ""
     direction = ""
-    roomResult = ""
+    roomResult = "" #room name
 
     # init
     def __init__(self, door, openItemName, description, direction, roomResult):

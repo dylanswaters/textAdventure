@@ -4,6 +4,7 @@ class Player:
     inventory = []
     roomLocation = None
     flagList = []
+    values = [] #for storing other info
 
     # init
     def __init__(self, name, flags):
@@ -26,15 +27,24 @@ class Player:
         self.inventory.append(item)
 
     def removeFromInv(self, item):
-        if item in inventory:
+        if item in self.inventory:
             self.inventory.remove(item)
             return True
         return False
 
     def checkInv(self, item):
-        if item in inventory:
+        if item in self.inventory:
             return True
         return False
+
+    def getValue(self, valName):
+        return self.values["valName"]
+
+    def getValues(self):
+        return self.values
+
+    def setValue(self, valName, newValue):
+        self.values["valName"] = newValue
 
     def getName(self):
         return self.name
